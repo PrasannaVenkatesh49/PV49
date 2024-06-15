@@ -1,0 +1,29 @@
+def count_frequencies(arr):
+    frequency_dict = {}
+    
+    # Populate the dictionary with frequencies of each element
+    for num in arr:
+        if num in frequency_dict:
+            frequency_dict[num] += 1
+        else:
+            frequency_dict[num] = 1
+    
+    # Print frequencies of each element once
+    for num, count in frequency_dict.items():
+        print(f"{num} occurs {count} times")
+
+def main():
+    # Input the size of the array
+    n = int(input())
+    
+    # Input the elements of the array
+    arr = []
+    for i in range(n):
+        num = int(input(  ))
+        arr.append(num)
+    
+    # Count and print the frequencies
+    count_frequencies(arr)
+
+if __name__ == "__main__":
+    main()

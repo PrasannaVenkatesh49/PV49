@@ -1,0 +1,50 @@
+def find_intersection(arr1, arr2):
+    i, j = 0, 0
+    intersection = []
+    
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] == arr2[j]:
+            intersection.append(arr1[i])
+            i += 1
+            j += 1
+        elif arr1[i] < arr2[j]:
+            i += 1
+        else:
+            j += 1
+    
+    return intersection
+
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+    
+    index = 0
+    T = int(data[index])
+    index += 1
+    results = []
+    
+    for _ in range(T):
+        N1 = int(data[index])
+        arr1 = list(map(int, data[index+1:index+1+N1]))
+        index += 1 + N1
+        
+        N2 = int(data[index])
+        arr2 = list(map(int, data[index+1:index+1+N2]))
+        index += 1 + N2
+        
+        # Find the intersection of arr1 and arr2
+        result = find_intersection(arr1, arr2)
+        
+        # Format output as a single line of space-separated integers
+        if result:
+            results.append(' '.join(map(str, result)))
+        else:
+            results.append('')
+    
+    # Print all results for all test cases
+    for result in results:
+        print(result)
+
+if __name__ == "__main__":
+    main()

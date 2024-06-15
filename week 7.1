@@ -1,0 +1,36 @@
+def get_non_repeating_elements(arr1, arr2):
+    # Convert both arrays to sets to find common elements
+    set1 = set(arr1)
+    set2 = set(arr2)
+    
+    # Find common elements
+    common_elements = set1.intersection(set2)
+    
+    # Remove common elements from both arrays
+    unique_arr1 = [x for x in arr1 if x not in common_elements]
+    unique_arr2 = [x for x in arr2 if x not in common_elements]
+    
+    # Combine the results and get the count
+    unique_elements = unique_arr1 + unique_arr2
+    count_unique_elements = len(unique_elements)
+    
+    return unique_elements, count_unique_elements
+
+def main():
+    # Read the input
+    sizes = input().strip().split()
+    size1 = int(sizes[0])
+    size2 = int(sizes[1])
+    
+    arr1 = list(map(int, input().strip().split()))
+    arr2 = list(map(int, input().strip().split()))
+    
+    # Get the unique non-repeating elements and their count
+    unique_elements, count_unique_elements = get_non_repeating_elements(arr1, arr2)
+    
+    # Print the results
+    print(" ".join(map(str, unique_elements)))
+    print(count_unique_elements)
+
+if __name__ == "__main__":
+    main()
